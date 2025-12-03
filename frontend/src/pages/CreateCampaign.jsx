@@ -19,7 +19,7 @@ const CreateCampaign = () => {
       amount: '',
       image: '',
       category: '',
-      creator: user._id,
+      creator: user?._id || '',
       location: ''
     });
 

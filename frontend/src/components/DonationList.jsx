@@ -17,7 +17,7 @@ const DonationList = ({ donation,user }) => {
                                         <GiLifeSupport size={25} color='#2ebc62' />
                                     </div>
                                     <div className='donationlist-content'>
-                                        <h1 className='donationlist-author'>{user}</h1>
+                                        <h1 className='donationlist-author'>{item?.cardname}</h1>
                                         <h1 className='donationlist-text'>{item?.amount}</h1>
                                         <h1 className='donationlist-time'>{formatDate(item?.donatedAt)}</h1>
                                     </div>
