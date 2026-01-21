@@ -7,9 +7,12 @@ import loginimg from "../asset/images/login.jpg";
 import SummaryApi from "../common";
 import { toast } from "react-toastify";
 import Context from "../context";
+import { useDispatch } from "react-redux";
+import { setUserDetails } from "../store/userSlice";
 
 const Login = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const {fetchUserDetails} = useContext(Context);
 
     
@@ -64,8 +67,10 @@ const Login = () => {
 
         if(dataApi.success){
             toast.success(dataApi.message);
+            dispatch(setUserDetails(dataApi.data));
+            localStorage.setItem("user", JSON.stringify(dataApi.data));
+            await fetchUserDetails();
             navigate('/Home');
-            fetchUserDetails()
         }
         if(dataApi.error){
             toast.error(dataApi.message)
