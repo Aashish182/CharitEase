@@ -8,6 +8,7 @@ import SummaryApi from '../common';
 const ExploreCard = ({data}) => {
     const params = useParams();
     const [loading,setLoading] = useState(false);
+    
 
     const [donationData,setDonationData] = useState([])
 
@@ -19,7 +20,7 @@ const ExploreCard = ({data}) => {
                 "content-type" : "application/json"
             },
             body : JSON.stringify({
-                    campaignId : params?.id
+                    campaignId : data?.id
             })
         })
         setLoading(false);
@@ -32,7 +33,7 @@ const ExploreCard = ({data}) => {
         fetchDonationDetail();
     },[])
 
-console.log("len",donationData.length);
+console.log("len",data);
     const calculateGoalPercent = () => {
         const datanum = Math.round((data?.raisedAmount /  data?.amount) * 100);
         if (datanum > 100) {

@@ -47,8 +47,10 @@ function App() {
     const dataApi = await dataResponse.json();
 
     if(dataApi.success){
-      dispatch(setUserDetails(dataApi.data))
+      dispatch(setUserDetails(dataApi.data));
+      console.log("user details fetched successfully");
     }
+    console.log("dataApi user details",dataApi);
   }
   useEffect(() => {
     fetchUserDetails()

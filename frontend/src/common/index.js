@@ -1,5 +1,6 @@
 
-const backendDomain = "https://charitease-backend.onrender.com";
+// const backendDomain = "https://charitease-backend.onrender.com";
+const backendDomain = "http://localhost:8080";
 
 const SummaryApi = {
     register :{
